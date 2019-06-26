@@ -48,7 +48,10 @@
   SSLEngine on
   SSLCipherSuite {{ apache_ssl_cipher_suite }}
   SSLProtocol {{ apache_ssl_protocol }}
+  Header always set Strict-Transport-Security "max-age=15768000; includeSubdomains;"
   SSLHonorCipherOrder On
+  SSLSessionTickets   off
+  SSLOptions +StrictRequire
 {% if apache_vhosts_version == "2.4" %}
   SSLCompression off
 {% endif %}
