@@ -26,6 +26,10 @@
 {% endif %}
   </Directory>
 {% endif %}
+
+  ErrorLog ${APACHE_LOG_DIR}/{{ vhost.servername }}-error.log
+  CustomLog ${APACHE_LOG_DIR}/{{ vhost.servername }}-access.log combined
+
 {% if vhost.extra_parameters is defined %}
   {{ vhost.extra_parameters }}
 {% endif %}
@@ -76,6 +80,10 @@
 {% endif %}
   </Directory>
 {% endif %}
+
+  ErrorLog ${APACHE_LOG_DIR}/{{ vhost.servername }}-error.log
+  CustomLog ${APACHE_LOG_DIR}/{{ vhost.servername }}-access.log combined
+
 {% if vhost.extra_parameters is defined %}
   {{ vhost.extra_parameters }}
 {% endif %}
