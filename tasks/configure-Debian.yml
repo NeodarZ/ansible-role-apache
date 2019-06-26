@@ -24,7 +24,7 @@
   notify: restart apache
 
 - name: Check whether certificates defined in vhosts exist.
-  stat: "path={{ item.certificate_file }}"
+  stat: "path={{ item.certificate_file | default(apache_ssl_certificate_file) }}"
   register: apache_ssl_certificates
   with_items: "{{ apache_vhosts_ssl }}"
 
